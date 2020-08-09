@@ -1,0 +1,43 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// .loader {
+//     border: 40px solid #eeeeee;
+//     border-radius: 50%;
+//     border-top: 40px solid #fed330;
+//     width: 350px;
+//     height: 350px;
+//     animation: spin 2s linear infinite;
+//     position: fixed;
+//     right: 0;
+//     left: 0;
+//     top: 135px;
+//     margin: 0 auto;
+// }

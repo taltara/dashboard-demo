@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #fff;
+    padding: 0 20px;
+    .menu-icon {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: 0.15s ease-in-out;
+        background-color: transparent;
+        padding: 2px;
+        &:hover {
+            transform: rotateX(45deg);
+        }
+    }
+}
