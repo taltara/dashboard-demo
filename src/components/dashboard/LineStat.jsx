@@ -7,6 +7,8 @@ import { ResponsiveLine } from "@nivo/line";
 const LineStat = (props) => {
   const { data } = props;
 
+  const [currData, setCurrData] = useState({ id: "Sales", data: [{ x: 0, y: 0 }], init: true });
+
   const priceTooltip = (stat) => {
     const theme = "light";
     return (
@@ -49,6 +51,13 @@ const LineStat = (props) => {
     );
   };
 
+  useEffect(() => {
+
+    setTimeout(() => {
+        setCurrData(data);
+    }, 500);
+  }, [])
+
   console.log(data);
   return (
     <div className="line-stat">
@@ -78,7 +87,7 @@ const LineStat = (props) => {
             }}
             pointSize={0}
             enableCrosshair={false}
-            data={[data]}
+            data={[currData]}
             margin={{ top: 25, right: 0, bottom: 109, left: 0 }}
             xScale={{ type: "point" }}
             yScale={{
