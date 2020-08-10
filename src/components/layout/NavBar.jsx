@@ -14,8 +14,11 @@ const NavBar = (props) => {
         <MenuIcon onClick={() => toggleMenu((prevState) => !prevState)} />
       </div>
       <aside className="navbar-utils flex align-center space-end">
-          <SettingsIcon className="settings-icon" />
-        <NotificationsIcon className="notifications-icon"/>
+        <SettingsIcon className="settings-icon" />
+        <div className="notifications-container">
+            <div className="alerts-count flex align-center space-center">5</div>
+          <NotificationsIcon className="notifications-icon" />
+        </div>
         <img src={UserIcon} alt="" className="utils-user-icon" />
       </aside>
     </nav>
