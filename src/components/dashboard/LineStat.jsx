@@ -123,7 +123,6 @@ const LineStat = (props) => {
                 // will inherit colors from current element
                 linearGradientDef("gradient", [
                   { offset: 0, color: "#0B72B9", opacity: 1 },
-                  { offset: 50, color: "#0B72B9", opacity: 0.5 },
                   { offset: 100, color: "#0B72B9", opacity: 0 },
                 ]),
               ]}

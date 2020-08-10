@@ -28,12 +28,14 @@
         transition: 0.25s cubic-bezier(0.3, 0.45, 0.05, 1);
 
         &:hover {
-            transform: scale(1.25);
+          transform: scale(1.25);
         }
       }
 
       .row-info-description {
-          font-size: 12px;
+        font-size: 12px;
+        max-height: 32px;
+        overflow: hidden;
       }
       .row-info-name {
         font-weight: 500;
@@ -59,8 +61,9 @@
 
     th,
     td {
+      overflow: hidden;
       &:not(:last-of-type) {
-          margin-right: 10px;
+        margin-right: 10px;
       }
     }
 
@@ -75,19 +78,19 @@
     }
 
     .cell-s {
-        width: 60px;
+      width: 60px;
     }
     .cell-m {
-        width: 120px;
+      width: 120px;
     }
     .cell-l {
-        width: 180px;
+      width: 180px;
     }
     .cell-xl {
-        width: 240px;
+      width: 240px;
     }
     .cell-xxl {
-        width: 320px;
+      width: 320px;
     }
   }
 

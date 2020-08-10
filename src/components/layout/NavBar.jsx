@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import MenuIcon from "../../assets/img/menu.svg";
+import { ReactComponent as MenuIcon } from "../../assets/img/menu.svg";
 
-const NavBar = () => {
-    return (
-        <nav className="navbar flex align-center space-between">
-            <img src={MenuIcon} alt="" className="menu-icon"/>
-        </nav>
-    )
-}
+const NavBar = (props) => {
+  const { toggleMenu } = props;
+  return (
+    <nav className="navbar flex align-center space-between">
+        <div className="menu-icon">
+            <MenuIcon onClick={() => toggleMenu((prevState) => !prevState)} />
+        </div>
+
+    </nav>
+  );
+};
 
 export default NavBar;
