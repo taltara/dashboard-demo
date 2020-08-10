@@ -1,12 +1,22 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 const SideMenuRow = (props) => {
-  const { Icon, label } = props.data;
+  const { data, tabIndex, setActiveTab, isActive } = props;
+  const { Icon, label } = data;
+
+  const rowClass = isActive ? "active-row" : "";
   return (
-    <div className="menu-row flex align-center space-start">
-      <Icon className="menu-row-icon" />
-      <p>{label}</p>
-    </div>
+    <NavLink to="#" className="link-row">
+      <div
+        className={`menu-row flex align-center space-start ${rowClass}`}
+        onClick={() => setActiveTab(tabIndex)}
+      >
+        <Icon className="menu-row-icon" />
+        <p>{label}</p>
+      </div>
+    </NavLink>
   );
 };
 
