@@ -22,28 +22,28 @@ const SideMenu = (props) => {
     { Icon: PaymentIcon, label: "Payment" },
     { Icon: SettingsIcon, label: "Settings" },
   ];
-  
-  console.log(activeTab);
+
+
   return (
-    <div
-      className={`side-menu ${sideMenuClass} flex column align-center space-start`}
-    >
-      <p>Secret Dashboard</p>
-      <ul className="menu-rows-container">
-        {menuTabs.length &&
-          menuTabs.map((tab, index) => {
-            return (
-              <SideMenuRow
-                key={index}
-                data={tab}
-                tabIndex={index}
-                setActiveTab={setActiveTab}
-                isActive={index === activeTab}
-              />
-            );
-          })}
-      </ul>
-    </div>
+      <div
+        className={`side-menu ${sideMenuClass} flex column align-center space-start`}
+      >
+        <p>Secret Dashboard</p>
+        <ul className="menu-rows-container">
+          {menuTabs.length &&
+            menuTabs.map((tab, index) => {
+              return (
+                <SideMenuRow
+                  key={index}
+                  data={tab}
+                  tabIndex={index}
+                  setActiveTab={setActiveTab}
+                  isActive={index === activeTab}
+                />
+              );
+            })}
+        </ul>
+      </div>
   );
 };
 

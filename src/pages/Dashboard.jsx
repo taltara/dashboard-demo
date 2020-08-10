@@ -24,7 +24,6 @@ const Dashboard = () => {
     // });
   }, []);
 
-  console.log(statsInfo);
   return (
     <div className="dashboard flex column align-start space-start">
       <p className="dashboard-header">Dashboard</p>

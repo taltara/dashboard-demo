@@ -62,7 +62,7 @@ const LineStat = (props) => {
     }, 500);
   }, []);
 
-  console.log(data);
+  // console.log(data);
   return (
     <div className="line-stat">
       {data && (
