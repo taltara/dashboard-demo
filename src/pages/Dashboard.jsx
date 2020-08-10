@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+import { dummyData } from "../data";
 import Loader from "../components/layout/Loader";
 import dashboardService from "../services/dashboardService";
 import LineStat from "../components/dashboard/LineStat";
 import TableStat from "../components/TableStat";
+
 
 const Dashboard = () => {
   const { getOrdersData, getOrdersDashboardInfo } = dashboardService;
@@ -12,10 +14,14 @@ const Dashboard = () => {
   const [statsInfo, setStatsInfo] = useState({ loading: true });
 
   useEffect(() => {
-    dashboardService.getOrdersData().then((res) => {
-      console.log(res);
-      setStatsInfo(getOrdersDashboardInfo(res, currency));
-    });
+    setTimeout(() => {
+      setStatsInfo(dummyData);
+    }, 500);
+
+    // dashboardService.getOrdersData().then((res) => {
+    //   console.log(res);
+    //   setStatsInfo(getOrdersDashboardInfo(res, currency));
+    // });
   }, []);
 
   console.log(statsInfo);

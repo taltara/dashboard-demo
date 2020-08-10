@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 
 import utilService from "../../services/utilService";
 
+import { linearGradientDef } from "@nivo/core";
 import { ResponsiveLine } from "@nivo/line";
 
 const LineStat = (props) => {
   const { data } = props;
 
-  const [currData, setCurrData] = useState({ id: "Sales", data: [{ x: 0, y: 0 }], init: true });
+  const [currData, setCurrData] = useState({
+    id: "Sales",
+    data: [{ x: 0, y: 0 }],
+    init: true,
+  });
 
   const priceTooltip = (stat) => {
     const theme = "light";
@@ -52,67 +57,82 @@ const LineStat = (props) => {
   };
 
   useEffect(() => {
-
     setTimeout(() => {
-        setCurrData(data);
+      setCurrData(data);
     }, 500);
-  }, [])
+  }, []);
 
   console.log(data);
   return (
     <div className="line-stat">
       {data && (
         <>
-        <header>
-          <p className="stat-type">{data.id}</p>
-          <p className="stat-amount">{utilService.priceFormatter(data.total, true)}</p>
-
-        </header>
-
-          <ResponsiveLine
-            enableGridX={false}
-            enableGridY={false}
-            curve="cardinal"
-            theme={{
-              axis: {
-                ticks: {
-                  text: {
-                    textColor: "#eee",
-                    fontFamily: "",
-                    fontSize: "14px",
-                    tickColor: "transparent",
+          <header>
+            <p className="stat-type">{data.id}</p>
+            <p className="stat-amount">
+              {utilService.priceFormatter(data.total, true)}
+            </p>
+          </header>
+          <div className="line-container">
+            <ResponsiveLine
+              enableGridX={false}
+              enableGridY={false}
+              curve="cardinal"
+              theme={{
+                axis: {
+                  ticks: {
+                    text: {
+                      textColor: "#eee",
+                      fontFamily: "",
+                      fontSize: "14px",
+                      tickColor: "transparent",
+                    },
                   },
                 },
-              },
-            }}
-            pointSize={0}
-            enableCrosshair={false}
-            data={[currData]}
-            margin={{ top: 25, right: 0, bottom: 109, left: 0 }}
-            xScale={{ type: "point" }}
-            yScale={{
-              type: "linear",
-              min: "auto",
-              max: "auto",
-              stacked: false,
-              reverse: false,
-            }}
-            axisTop={null}
-            axisRight={null}
-            axisBottom={null}
-            axisLeft={null}
-            colors={["#0B72B9"]}
-            enableArea={true}
-            pointColor="#0B72B9"
-            pointBorderWidth={2}
-            pointBorderColor={{ from: "serieColor" }}
-            pointLabel="y"
-            pointLabelYOffset={0}
-            useMesh={true}
-            tooltip={(stat) => {
-              return priceTooltip(stat);
-            }}
-          />
+              }}
+              pointSize={0}
+              enableCrosshair={false}
+              data={[currData]}
+              margin={{ top: 25, right: 0, bottom: 0, left: 0 }}
+              xScale={{ type: "point" }}
+              yScale={{
+                type: "linear",
+                min: "auto",
+                max: "auto",
+                stacked: false,
+                reverse: false,
+              }}
+              axisTop={null}
+              axisRight={null}
+              axisBottom={null}
+              axisLeft={null}
+              colors={["#0B72B9"]}
+              enableArea={true}
+              pointColor="#0B72B9"
+              pointBorderWidth={2}
+              pointBorderColor={{ from: "serieColor" }}
+              pointLabel="y"
+              pointLabelYOffset={0}
+              useMesh={true}
+              areaOpacity={1}
+              tooltip={(stat) => {
+                return priceTooltip(stat);
+              }}
+              defs={[
+                // using helpers
+                // will inherit colors from current element
+                linearGradientDef("gradient", [
+                  { offset: 0, color: "#0B72B9", opacity: 1 },
+                  { offset: 50, color: "#0B72B9", opacity: 0.5 },
+                  { offset: 100, color: "#0B72B9", opacity: 0 },
+                ]),
+              ]}
+              fill={[
+                
+                { match: '*', id: 'gradient' },
+            ]}
+            />
+          </div>
         </>
       )}
     </div>

@@ -7,19 +7,31 @@ const TableStat = (props) => {
 
   console.log(data);
   return (
-    <div className="table-stat">
+    <div className="table-stat-container">
       <p className="stat-type">{data.id}</p>
-      <div className="table-stat-row-titles flex align-center space-between ">
-        <p>Photo</p>
-        <p>Name</p>
-        <p>Amount</p>
-        <p>Price</p>
-        <p>Vendor</p>
-        <p>Stack</p>
-      </div>
-      {data && data.data.map((item, index) => {
-          return <TableStatRow data={item} key={index} isLast={index === data.data.length - 1} />
-      })}
+
+      <table className="table-stat">
+        <tbody>
+          <tr className="table-stat-row-titles flex align-center ">
+            <th className="cell-s">Photo</th>
+            <th className="cell-l">Description</th>
+            <th className="cell-s">Amount</th>
+            <th className="cell-s">Price</th>
+            <th className="cell-m">Vendor</th>
+            <th className="cell-s">Stack</th>
+          </tr>
+          {data &&
+            data.data.map((item, index) => {
+              return (
+                <TableStatRow
+                  data={item}
+                  key={index}
+                  isLast={index === data.data.length - 1}
+                />
+              );
+            })}
+        </tbody>
+      </table>
     </div>
   );
 };

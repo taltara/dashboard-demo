@@ -1,25 +1,23 @@
 .tilt-button {
   border-bottom: 2px solid transparent;
   transition: 0.15s ease-in-out;
-  border-radius: 7px;
-  padding: 5px 10px;
-  font-weight: 700;
-  
-
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 90px;
+  text-align: center;
+  color: darken($color: #b2e5fb, $amount: 25);
   &.button-light {
     color: rgba(255, 255, 255, 0.85);
     background-color: #323031;
-    box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.25);
   }
 
   &.button-dark {
     // color: white;
     background-color: transparent;
-    box-shadow: 0px 0px 2px 2px #b2e5fb;
-
-    &:hover {
-      box-shadow: 0px 0px 4px 4px #b2e5fb;
-    }
+    box-shadow: 0px 0px 1px 3px #b2e5fb;
   }
 
   &.activeTab {

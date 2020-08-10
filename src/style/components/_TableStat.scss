@@ -1,43 +1,101 @@
-.table-stat {
+.table-stat-container {
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 10px 0;
+  font-size: 14px;
+  .table-stat {
     width: 500px;
     height: 200px;
-    padding: 20px;
-    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
-    background-color: #fff;
-    border-radius: 5px;
-    .table-stat-row-info {
-        width: 100%;
-        padding: 10px 0;
-        &.last-row {
-            border-bottom: 2px solid rgba(0, 0, 0, 0.25);
-        }
 
-        .row-price {
-            color: tomato;
+    .table-stat-row-info {
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+      &.last-row {
+        border-bottom: 2px solid transparent;
+        padding: 10px 0 0;
+      }
+
+      .row-price {
+        color: tomato;
+      }
+
+      .row-info-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        transition: 0.25s cubic-bezier(0.3, 0.45, 0.05, 1);
+
+        &:hover {
+            transform: scale(1.25);
         }
+      }
+
+      .row-info-description {
+          font-size: 12px;
+      }
+      .row-info-name {
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
     }
 
     .table-stat-row-titles {
-        width: 77%;
-        font-size: 12px;
-        color: rgba(0, 0, 0, 0.75);
-    
-        // & > *:not(last-of-type) {
+      width: 100%;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.75);
 
-        //     margin-right: 10px;
-        // }
-        margin-bottom: 10px;
+      // & > *:not(last-of-type) {
+
+      //     margin-right: 10px;
+      // }
+      margin-bottom: 10px;
     }
 
-    & > *:not(last-of-type) {
-        margin-bottom: 10px;
+    & > *:not(:last-of-type) {
+      margin-bottom: 10px;
     }
 
-    .stat-type { 
-        margin-bottom: 5px;
-        color: rgba(0, 0, 0, 0.75);
-        font-weight: 700;
-        font-size: 14px;
-
+    th,
+    td {
+      &:not(:last-of-type) {
+          margin-right: 10px;
+      }
     }
+
+    th {
+      text-align: left;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    tr {
+      .tilt-button {
+      }
+    }
+
+    .cell-s {
+        width: 60px;
+    }
+    .cell-m {
+        width: 120px;
+    }
+    .cell-l {
+        width: 180px;
+    }
+    .cell-xl {
+        width: 240px;
+    }
+    .cell-xxl {
+        width: 320px;
+    }
+  }
+
+  .stat-type {
+    /* line-height: 30px; */
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
 }
