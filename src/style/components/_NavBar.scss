@@ -16,6 +16,7 @@
   .navbar-utils {
     width: 80%;
     padding: 5px;
+    transition: 0.5s cubic-bezier(0.3, 0.45, 0.05, 1);
     .utils-user-icon {
       transition: 0.2s ease-in-out;
       width: 40px;
@@ -71,6 +72,10 @@
             backface-visibility: hidden;
             perspective: 1000px;
           }
+    }
+
+    &.slide-utils {
+        transform: translateX(-200px);
     }
 
   }

@@ -7,13 +7,24 @@ import { ReactComponent as MenuIcon } from "../../assets/img/menu.svg";
 import { ReactComponent as NotificationsIcon } from "../../assets/img/notifications.svg";
 
 const NavBar = (props) => {
-  const { toggleMenu } = props;
+  const { toggleMenu, isOpen } = props;
+
+  const [utilsClass, setUtilsClass] = useState("");
+
+  useEffect(() => {
+      const classAdd = isOpen ? "slide-utils" : "";
+        setTimeout(() => {
+            setUtilsClass(classAdd);
+        }, 200);
+    
+  }, [isOpen] )
+
   return (
     <nav className="navbar flex align-center space-between">
       <div className="menu-icon">
         <MenuIcon onClick={() => toggleMenu((prevState) => !prevState)} />
       </div>
-      <aside className="navbar-utils flex align-center space-end">
+      <aside className={`navbar-utils flex align-center space-end ${utilsClass}`}>
         <SettingsIcon className="settings-icon" />
         <div className="notifications-container">
             <div className="alerts-count flex align-center space-center">5</div>

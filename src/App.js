@@ -30,7 +30,7 @@ function App() {
     <div className={`App ${appClass}`}>
       <SideMenu isOpen={sideMenuOpen} toggleMenu={setSideMenuOpen} />
       <main className="app-main">
-        <NavBar toggleMenu={setSideMenuOpen} />
+        <NavBar toggleMenu={setSideMenuOpen} isOpen={sideMenuOpen} />
         <Dashboard />
       </main>
     </div>
